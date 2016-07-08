@@ -6,17 +6,29 @@ public class Automatia {
 
 
     Component player1 = new Component();
-    Mover mover = new Mover(10,10);
+    Component player2 = new Component();
+   
+    Population population = new Population();
+    population.addToPopulation(player1);
+    population.addToPopulation(player2);
 
-    for(int i = 0; i < 100; i++){
+    Mover mover = new Mover(2,2);
+    Interaction interaction = new Interaction();
 
-      mover.makeMove(player1);
-      System.out.println("Moved to: " + "(" + player1.getCurrentX1Location() + "," + player1.getCurrentX2Location() + ")");
+    for(int i = 0; i < 40; i++){
 
+      System.out.println("move: " + i);
 
+    for(Component component : population.getListOfPopulation()){
+
+      mover.makeMove(component);
+      System.out.println("x1: " + component.getCurrentX1Location() + " x2: " + component.getCurrentX2Location());
+      interaction.checkForContact(component,population);
     }
 
+    }}
 
-  }
+
+
 
 }
