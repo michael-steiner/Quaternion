@@ -13,10 +13,11 @@ public class Component {
   private LinkedList<Component> listOfOuterComponents = new LinkedList<>();
   private boolean newComponent = false;
   private Component myKeyComponent;
+  private Polarity polarity;
 
 
 
-  Component () {
+  Component (Polarity charge) {
 
     currentX1Location = 0;
     currentX2Location = 0;
@@ -27,6 +28,15 @@ public class Component {
 
   }
 
+  public Polarity getPolarity () {
+
+    return polarity;
+  }
+
+  public void setPolarity (Polarity polarity) {
+
+    this.polarity = polarity;
+  }
 
   public Component getMyKeyComponent () {
 
