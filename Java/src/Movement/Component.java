@@ -25,6 +25,7 @@ public class Component {
     x2Trajectory.add(currentX2Location);
     keyComponent = true;
     myKeyComponent = this;
+    polarity = charge;
 
   }
 

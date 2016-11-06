@@ -1,23 +1,40 @@
 package Movement;
 
+import java.util.Random;
+
 public class Automatia {
 
   public static void main (String args[]) {
+
+    int sizeOfX1 = 2;
+    int sizeOfX2 = 2;
+    int numberOfMovesToMake = 100;
+    int numberOfComponets = 3;
+
     Polarity polarity;
 
-    Component player1 = new Component(Polarity.POSITIVE);
-    Component player2 = new Component(Polarity.NEGATIVE);
-    Component player3 = new Component(Polarity.NEGATIVE);
-
     Population population = new Population();
-    population.addToPopulation(player1);
-    population.addToPopulation(player2);
-    population.addToPopulation(player3);
 
-    Mover mover = new Mover(5, 5);
+    Random random = new Random();
+
+    for (int ii = 0; ii < (numberOfComponets + 1); ii++) {
+
+      int getCharge = random.nextInt(2);
+
+      if (getCharge == 0) {
+
+        population.addToPopulation(new Component(Polarity.NEGATIVE));
+      } else {
+
+        population.addToPopulation(new Component(Polarity.POSITIVE));
+      }
+
+    }
+
+    Mover mover = new Mover(sizeOfX1, sizeOfX2);
     Interaction interaction = new Interaction();
 
-    for (int i = 0; i < 40; i++) {
+    for (int i = 0; i < numberOfMovesToMake; i++) {
 
       System.out.println("move: " + i);
 
